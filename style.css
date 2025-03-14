@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    padding: 20px;
+}
+
+#riskDashboard {
+    padding: 30px;
+    margin: 10px;
+    background-color: rgb(226, 217, 218);
+    border-radius: 5px;
+    display: inline-block; 
+}
+
+.riskCard {
+    padding: 30px;
+    margin: 10px;
+    background-color: rgb(235, 191, 191);
+    border-radius: 5px;
+    display: inline-block; 
+}
+
+#riskForm {
+    margin-top: 10px;
+}
+
+#riskInput {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: lightblue;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(119, 165, 180);
+}
+
+
+
