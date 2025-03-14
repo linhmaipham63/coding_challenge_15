@@ -21,10 +21,19 @@ function addRiskItem(riskName, riskLevel, department) {
         <strong>Risk:</strong> ${riskName} <br>
         <strong>Level:</strong> ${riskLevel} <br>
         <strong>Department:</strong> ${department}
+        <button class="resolve-button">Resolve</button>
     `; 
 
+    // Task 3: Modify addRiskItem to include a "Resolve" button
+    const resolveButton = newRiskCard.querySelector(".resolve-button"); 
+
+    // Task 3: When the button is clicked, remove the corresponding risk card
+    resolveButton.addEventListener("click", () => {
+        riskDashboard.removeChild(newRiskCard); 
+    });
+
     // Appends risk card to the riskDashboard
-    riskDashboard.appendChild(newRiskCard); 
+    riskDashboard.appendChild(newRiskCard);
 }
 
 // Allow users to input a new risk using an HTML form
@@ -57,4 +66,10 @@ riskForm.addEventListener("submit", (event) => {
 // Test Case:
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+
+
+// Task 3: Removing Risk Items
+
+// Test Case:
+addRiskItem("Market Fluctuations", "High", "Finance");
 
