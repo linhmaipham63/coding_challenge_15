@@ -32,6 +32,15 @@ function addRiskItem(riskName, riskLevel, department) {
         riskDashboard.removeChild(newRiskCard); 
     });
 
+    // Modify addRiskItem to apply different background colors based on risk level
+    if (riskLevel === "Low") { 
+        newRiskCard.style.backgroundColor = "lightgreen"; // Low → Light Green
+    } else if (riskLevel === "Medium") {
+        newRiskCard.style.backgroundColor = "lightyellow"; // Medium → Light Yellow
+    } else if (riskLevel === "High") {
+        newRiskCard.style.backgroundColor = "#e14747"; // High → Light Red
+    }
+    
     // Appends risk card to the riskDashboard
     riskDashboard.appendChild(newRiskCard);
 }
@@ -72,4 +81,11 @@ addRiskItem("Supply Chain Disruption", "Medium", "Operations");
 
 // Test Case:
 addRiskItem("Market Fluctuations", "High", "Finance");
+
+
+// Task 4: Categorizing Risks by Level
+
+// Test Case:
+addRiskItem("Cybersecurity Threat", "High", "IT");
+addRiskItem("HR Compliance Issue", "Low", "Human Resources");
 
