@@ -14,8 +14,21 @@
     <main>
         <div id="riskDashboard"></div>
         <form id="addRisk-form">
-            <input type="text" id="riskInput" placeholder="Enter new Risk Item:" required>
+
+            <label for="riskInput">Risk Name:</label>
+            <input type="text" id="riskInput" required><br><br>
+
+            <label for="riskLevel">Risk Level:</label>
+            <select id="riskLevel" required>
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+            </select><br><br>
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" required><br><br>
             <button type="submit">Add Risk Item</button>
+        
         </form>
     </main>
 
