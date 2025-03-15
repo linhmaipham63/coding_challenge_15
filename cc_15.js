@@ -136,3 +136,9 @@ increaseButton.addEventListener("click", increaseRiskLevels);
 riskDashboard.appendChild(increaseButton);
 
 
+// Task 6: Handling Event Propagation
+
+// Use stopPropagation() to ensure clicking inside a risk card does not trigger unwanted actions on the dashboard
+riskDashboard.addEventListener("click", () => {
+    console.log("Risk Dashboard clicked! (Should not trigger if clicking inside a risk card)");
+});
