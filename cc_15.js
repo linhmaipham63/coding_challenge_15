@@ -27,6 +27,11 @@ function addRiskItem(riskName, riskLevel, department) {
     // Task 3: Modify addRiskItem to include a "Resolve" button
     const resolveButton = newRiskCard.querySelector(".resolve-button"); 
 
+    // Task 6: Prevent unintended clicks inside the risk card
+    newRiskCard.addEventListener("click", (event) => {
+        event.stopPropagation(); // Stops the click from affecting parent elements
+    });
+
     // Task 3: When the button is clicked, remove the corresponding risk card
     resolveButton.addEventListener("click", () => {
         riskDashboard.removeChild(newRiskCard); 
@@ -88,4 +93,46 @@ addRiskItem("Market Fluctuations", "High", "Finance");
 // Test Case:
 addRiskItem("Cybersecurity Threat", "High", "IT");
 addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+
+
+// Task 5: Implementing Bulk Updates
+
+function increaseRiskLevels() {
+    // Get all risk cards
+    const riskCards = document.querySelectorAll(".riskCard");
+
+    // Iterate through all risk cards
+    riskCards.forEach(card => {
+        const riskLevelElement = card.querySelector("strong:nth-of-type(2)"); // Select second <strong> (Risk Level)
+        
+        if (!riskLevelElement) return; // Skip if no risk level found
+
+        let currentRiskLevel = riskLevelElement.nextSibling.textContent.trim(); // Get text after <strong>
+        let newRiskLevel = currentRiskLevel;
+        let newBackgroundColor = card.style.backgroundColor;
+
+        // Update risk levels and background colors
+        if (currentRiskLevel === "Low") {
+            newRiskLevel = "Medium";
+            newBackgroundColor = "lightyellow"; // Set background to yellow
+        } else if (currentRiskLevel === "Medium") {
+            newRiskLevel = "High";
+            newBackgroundColor = "#e14747"; // Set background to red
+        }
+
+        // Update the risk level text and background color
+        riskLevelElement.nextSibling.textContent = ` ${newRiskLevel} `; // Update risk level
+        card.style.backgroundColor = newBackgroundColor;
+    });
+}
+
+// Test Case:
+addRiskItem("Employee Retention", "Low", "HR");
+
+// Add the "Increase Risk Levels" button to the dashboard
+const increaseButton = document.createElement("button");
+increaseButton.textContent = "Increase Risk Levels";
+increaseButton.addEventListener("click", increaseRiskLevels);
+riskDashboard.appendChild(increaseButton);
+
 
